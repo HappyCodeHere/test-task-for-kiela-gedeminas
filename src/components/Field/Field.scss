@@ -1,0 +1,16 @@
+.field {
+	text-align: center;
+
+	textarea {
+		margin: 0 auto;
+		width: 50%;
+		font-size: 20px;
+		height: 200px;
+	}
+	
+	.error {
+		color: red;
+		margin-top: 10px;
+	}
+
+}
