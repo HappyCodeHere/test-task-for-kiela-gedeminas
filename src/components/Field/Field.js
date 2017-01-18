@@ -12,7 +12,7 @@ class Field extends Component {
 		}
 
 		this.handleChange = this.handleChange.bind(this);
-		this.handleKeyPress = this.handleKeyPress.bind(this);
+		this.handleKeyDown = this.handleKeyDown.bind(this);
 		this.handleBlur = this.handleBlur.bind(this);
 		this.handleFocus = this.handleFocus.bind(this);
 		// this.handleSelect = this.handleSelect.bind(this);
@@ -30,13 +30,13 @@ class Field extends Component {
 		}
 	}
 
-	handleKeyPress(event) {
-		if(event.key == 'Enter') {
+	handleKeyDown(event) {
+		if(event.key === 'Enter') {
 			event.preventDefault();
-		}
-		if(event.key == 'Enter' && !this.state.error && this.state.text.length > 0) {
-			console.log('You send: ', this.state.text);
-			this.setState({text: ''});
+			if(!this.state.error && this.state.text.length > 0) {
+				console.log('You send: ', this.state.text);
+				this.setState({text: ''});
+			}
 		}
 	}
 
@@ -62,9 +62,9 @@ class Field extends Component {
 				<h2>Enter something...</h2>
 				<textarea
 					className="form-control"
-					value={this.state.text} 
-					onChange={this.handleChange} 
-					onKeyPress={this.handleKeyPress} 
+					value={this.state.text}
+					onChange={this.handleChange}
+					onKeyDown={this.handleKeyDown}
 					onBlur={this.handleBlur}
 					onFocus={this.handleFocus}
 					// onSelect={this.handleSelect}
