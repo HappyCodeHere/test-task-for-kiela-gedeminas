@@ -15,6 +15,7 @@ class Field extends Component {
 		this.handleKeyPress = this.handleKeyPress.bind(this);
 		this.handleBlur = this.handleBlur.bind(this);
 		this.handleFocus = this.handleFocus.bind(this);
+		// this.handleSelect = this.handleSelect.bind(this);
 
 	}
 
@@ -49,6 +50,12 @@ class Field extends Component {
 		}
 	}
 
+	/*handleSelect(event) {
+		if(this.state.error) {
+			this.setState({error: ''});
+		}
+	}*/
+
 	render() {
 		return (
 			<div className="field">
@@ -60,6 +67,7 @@ class Field extends Component {
 					onKeyPress={this.handleKeyPress} 
 					onBlur={this.handleBlur}
 					onFocus={this.handleFocus}
+					// onSelect={this.handleSelect}
 				></textarea>
 				{this.state.error ?
 					<div className="error">{this.state.error}</div>
